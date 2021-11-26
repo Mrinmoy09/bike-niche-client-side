@@ -21,7 +21,7 @@ const Purchase = () => {
             body:JSON.stringify(data)
         })
         
-        swal( <p>
+        swal( <p style={{color:'green'}}>
             Thank you for trusting us.Your order has been confirmed.
           </p>)
     };
