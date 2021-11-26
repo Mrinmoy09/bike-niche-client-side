@@ -9,6 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
+import swal from '@sweetalert/with-react'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -44,23 +45,23 @@ const MyOrders = () => {
     },[isDeleted])
 
     const handleDelete = (id) => {
-        fetch(`https://stormy-oasis-41335.herokuapp.com//delete/${id}`,{
+      
+        fetch(`https://stormy-oasis-41335.herokuapp.com/delete/${id}`,{
             method:'DELETE',
             headers:{
                 'content-type':'application/json'
             }
-            
         })
         .then(res=>res.json())
             .then(result=>{
                 if(result.deletedCount){
-                    setIsDeleted(true)
+                 setIsDeleted(true)
                 }
                 else{
                     setIsDeleted(false);
                 }
             })
-            alert('Do You want to procceed?')
+            alert('Are you sure you want to cancel this order')
     }
     return (
         <TableContainer component={Paper}>

@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
 import { Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import swal from '@sweetalert/with-react'
 
 const Purchase = () => {
     const[singleProduct,setSingleProduct] = useState({})
@@ -20,7 +21,9 @@ const Purchase = () => {
             body:JSON.stringify(data)
         })
         
-        alert('Your Booking is confirmed.Thank You for trusting Us');
+        swal( <p>
+            Thank you for trusting us.Your order has been confirmed.
+          </p>)
     };
     useEffect(()=>{
         fetch(`https://stormy-oasis-41335.herokuapp.com/purchase/${id}`)
